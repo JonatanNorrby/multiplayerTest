@@ -132,8 +132,7 @@ export class GameRoom extends DurableObject {
     }
 
     const pair = new WebSocketPair();
-    const client = pair[0];
-    const server = pair[1];
+    const [client, server] = Object.values(pair);
 
     const player = {
       id: crypto.randomUUID(),
