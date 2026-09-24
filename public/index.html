@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Multiplayer Tech Demo</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main id="app">
+    <section id="menu" class="menu-card">
+      <h1>Multiplayer Test</h1>
+      <p class="subtitle">Cloudflare Workers + Durable Objects</p>
+
+      <div id="main-menu" class="menu-actions">
+        <button id="start-game" class="primary">Start game</button>
+        <button id="show-join">Join game</button>
+      </div>
+
+      <div id="join-menu" class="menu-actions" hidden>
+        <label for="join-code">Session code</label>
+        <input id="join-code" maxlength="6" autocomplete="off" spellcheck="false" placeholder="ABC234" />
+        <button id="join-submit" class="primary">Join</button>
+        <button id="join-back" class="quiet">Back</button>
+      </div>
+
+      <p id="menu-error" class="error" role="alert"></p>
+    </section>
+
+    <section id="game" hidden>
+      <div class="hud">
+        <div class="room-info">
+          <span>Session</span>
+          <strong id="room-code-label">------</strong>
+          <button id="copy-code" class="tiny">Copy</button>
+        </div>
+        <div class="hud-right">
+          <span id="player-count">1/6 players</span>
+          <span id="connection-label">Connecting…</span>
+          <button id="leave-game" class="tiny">Leave</button>
+        </div>
+      </div>
+
+      <div class="arena-wrap">
+        <div id="arena" class="arena" tabindex="0" aria-label="Game arena"></div>
+      </div>
+      <p class="controls">Move with <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></p>
+    </section>
+  </main>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
